@@ -9,6 +9,14 @@
     <version>1.0-SNAPSHOT</version>
     <name>jersey2-starter</name>
 
+    <properties>
+        <jersey.version>2.3</jersey.version>
+        <jetty.version>9.0.5.v20130815</jetty.version>
+        <spring3.version>3.2.3.RELEASE</spring3.version>
+        <jackson.version>2.2.3</jackson.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <build>
         <finalName>jersey2-starter</finalName>
         <plugins>
@@ -25,10 +33,9 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.0.5.v20130815</version>
+                <version>${jetty.version}</version>
             </plugin>
         </plugins>
-
     </build>
 
     <dependencyManagement>
@@ -49,6 +56,27 @@
             <artifactId>jersey-container-servlet</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-spring3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring3.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
@@ -56,11 +84,8 @@
         <dependency>
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
-            <version>2.2.3</version>
+            <version>${jackson.version}</version>
         </dependency>
     </dependencies>
-    <properties>
-        <jersey.version>2.3</jersey.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+
 </project>
