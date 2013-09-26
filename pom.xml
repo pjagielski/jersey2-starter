@@ -15,6 +15,7 @@
         <spring3.version>3.2.3.RELEASE</spring3.version>
         <jackson.version>2.2.3</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <joda-time.version>2.2</joda-time.version>
     </properties>
 
     <build>
@@ -85,6 +86,16 @@
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-joda</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
         </dependency>
     </dependencies>
 
