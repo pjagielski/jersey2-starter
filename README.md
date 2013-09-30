@@ -3,7 +3,7 @@ Jersey2-starter
 
 Kick-start layout for RESTful application based on Jersey2 container
 
-https://api.travis-ci.org/pjagielski/jersey2-starter.png
+![travis-ci build status](https://api.travis-ci.org/pjagielski/jersey2-starter.png)
 
 Features
 --------
