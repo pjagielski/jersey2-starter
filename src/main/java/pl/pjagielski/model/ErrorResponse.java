@@ -1,17 +1,17 @@
-package pl.pjagielski;
+package pl.pjagielski.model;
 
 import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ResponseMessage {
+public class ErrorResponse {
 
     private String message;
-    private DateTime created = DateTime.now();
+    private DateTime createdAt = DateTime.now();
 
     @JsonCreator
-    public ResponseMessage(@JsonProperty("message") String message) {
+    public ErrorResponse(@JsonProperty("message") String message) {
         this.message = message;
     }
 
@@ -19,8 +19,8 @@ public class ResponseMessage {
         return message;
     }
 
-    public DateTime getCreated() {
-        return created;
+    public DateTime getCreatedAt() {
+        return createdAt;
     }
 
 }

@@ -24,7 +24,6 @@ public class EmbeddedJetty {
         server = new Server(8080);
 
         WebAppContext webAppContext = new WebAppContext();
-//        webAppContext.setDescriptor("src/test/resources/WEB-INF/web.xml");
         webAppContext.setResourceBase("src/main/webapp");
         webAppContext.setContextPath("/");
         File[] mavenLibs = Maven.resolver().loadPomFromFile("pom.xml")

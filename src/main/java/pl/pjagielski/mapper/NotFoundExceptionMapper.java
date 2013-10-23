@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
-import pl.pjagielski.ResponseMessage;
+import pl.pjagielski.model.ErrorResponse;
 
 @Provider
 public class NotFoundExceptionMapper implements ExceptionMapper<NotFoundException> {
@@ -17,7 +17,7 @@ public class NotFoundExceptionMapper implements ExceptionMapper<NotFoundExceptio
     public Response toResponse(NotFoundException exception) {
         return Response.status(NOT_FOUND)
             .type(APPLICATION_JSON_TYPE)
-            .entity(new ResponseMessage("Resource not found"))
+            .entity(new ErrorResponse("Resource not found"))
             .build();
     }
 
