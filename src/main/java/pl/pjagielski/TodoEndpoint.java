@@ -6,9 +6,11 @@ import static javax.ws.rs.core.Response.Status.OK;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 import pl.pjagielski.constraint.ValidForCreation;
@@ -18,10 +20,10 @@ import pl.pjagielski.model.Todo;
 @Path("todo")
 public class TodoEndpoint {
 
-    private final TodoService service;
+    private final TodoRepository service;
 
     @Inject
-    public TodoEndpoint(TodoService service) {
+    public TodoEndpoint(TodoRepository service) {
         this.service = service;
     }
 
@@ -34,11 +36,15 @@ public class TodoEndpoint {
     }
 
     @PUT
+    @Path("/{todoId}")
     @Consumes(APPLICATION_JSON)
-    public Response update(@ValidForModification Todo todo) {
-        service.update(todo);
+    public Response update(@PathParam("todoId") Long todoId, @ValidForModification Todo todo) {
+        Todo updatedTodo = service.update(todoId, todo);
+        if (updatedTodo == null) {
+            throw new NotFoundException("Todo [" + todoId + "] not found");
+        }
         return Response.status(OK).type(APPLICATION_JSON)
-            .entity(todo).build();
+            .entity(updatedTodo).build();
     }
 
 }

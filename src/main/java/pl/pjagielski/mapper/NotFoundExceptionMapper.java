@@ -17,7 +17,7 @@ public class NotFoundExceptionMapper implements ExceptionMapper<NotFoundExceptio
     public Response toResponse(NotFoundException exception) {
         return Response.status(NOT_FOUND)
             .type(APPLICATION_JSON_TYPE)
-            .entity(new ErrorResponse("Resource not found"))
+            .entity(new ErrorResponse("Resource not found [" +exception.getMessage() + "]"))
             .build();
     }
 

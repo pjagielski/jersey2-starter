@@ -30,7 +30,9 @@ public class TodoBuilder {
     }
 
     public Todo build() {
-        Todo todo = new Todo(description, dueDate);
+        Todo todo = new Todo();
+        todo.setDescription(description);
+        todo.setDueDate(dueDate);
         todo.setCompleted(completed);
         todo.setId(id);
         return todo;

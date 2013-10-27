@@ -2,23 +2,14 @@ package pl.pjagielski.model;
 
 import org.joda.time.DateTime;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.Objects;
 
 public class Todo {
 
     private Long id;
     private String description;
-    private Boolean completed;
+    private Boolean completed = Boolean.FALSE;
     private DateTime dueDate;
-
-    @JsonCreator
-    public Todo(@JsonProperty("description") String description, @JsonProperty("dueDate") DateTime dueDate) {
-        this.description = description;
-        this.dueDate = dueDate;
-        this.completed = false;
-    }
 
     public Long getId() {
         return id;

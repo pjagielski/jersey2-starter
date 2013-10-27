@@ -30,21 +30,6 @@
         <finalName>jersey2-starter</finalName>
         <plugins>
             <plugin>
-                <groupId>com.qmino</groupId>
-                <artifactId>miredot-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>restdoc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!--insert configuration here-->
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
@@ -146,6 +131,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
@@ -188,6 +174,11 @@
             <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
             <version>2.0.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring3.version}</version>
         </dependency>
     </dependencies>
 

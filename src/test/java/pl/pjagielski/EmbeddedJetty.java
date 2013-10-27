@@ -39,8 +39,6 @@ public class EmbeddedJetty {
             new WebXmlConfiguration(),
             new WebInfConfiguration()
         });
-        webAppContext.setParentLoaderPriority(true);
-
         server.setHandler(webAppContext);
 
         logger.info(">>> STARTING EMBEDDED JETTY SERVER");
