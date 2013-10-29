@@ -1,5 +1,8 @@
 language: java
 
+jdk:
+  - oraclejdk7
+  
 after_success:
   - mvn clean jacoco:report coveralls:jacoco
 
