@@ -1,1 +1,5 @@
 language: java
+
+after_success:
+  - mvn clean jacoco:report coveralls:jacoco
+
